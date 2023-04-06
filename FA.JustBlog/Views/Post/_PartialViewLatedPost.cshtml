@@ -1,0 +1,15 @@
+﻿@using FA.JustBlog.Core.Models
+@using FA.JustBlog.Core.Repository.UnitOfWork
+@model IList<Post>
+@inject IUnitOfWork ouw;
+
+
+@{
+    IList<Post> mostViewPost = ouw.PostRepository.GetLatestPost(5);
+}
+
+@foreach (var item in mostViewPost)
+{
+    <h5>@item.Title</h5>
+    <p>@item.PostedOn</p>
+}
