@@ -15,6 +15,30 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\OJT-Fsoft\FA.JustBlog\FA.JustBlog
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/PostManager/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUG9zdE1hbmFnZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/Shared/_LayoutList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -67,6 +91,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxEZXRhaWxieVVybFNsdWcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Views/Post/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Views/Post/_PartialAboutCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxfUGFydGlhbEFib3V0Q2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -83,10 +111,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Views/Shared/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -101,6 +125,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Views/Shared/_PartialIdentityUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QYXJ0aWFsSWRlbnRpdHlVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Views/Shared/_PartialMenuLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QYXJ0aWFsTWVudUxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Views/Shared/_PostDetailLayout.cshtml]

@@ -24,11 +24,7 @@ namespace FA.JustBlog.Controllers
             return View();
         }
 
-        //[ChildActionOnly]
-        public ActionResult AboutCard()
-        {
-            return PartialView("_PartialAboutCard");
-        }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

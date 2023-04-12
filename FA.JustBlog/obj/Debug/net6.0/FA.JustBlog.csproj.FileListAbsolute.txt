@@ -277,3 +277,5 @@ D:\OJT-Fsoft\FA.JustBlog\FA.JustBlog\bin\Debug\net6.0\Microsoft.Extensions.FileP
 D:\OJT-Fsoft\FA.JustBlog\FA.JustBlog\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 D:\OJT-Fsoft\FA.JustBlog\FA.JustBlog\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 D:\OJT-Fsoft\FA.JustBlog\FA.JustBlog\obj\Debug\net6.0\FA.JustBlog.MvcApplicationPartsAssemblyInfo.cs
+D:\OJT-Fsoft\FA.JustBlog\FA.JustBlog\bin\Debug\net6.0\PagedList.dll
+D:\OJT-Fsoft\FA.JustBlog\FA.JustBlog\bin\Debug\net6.0\PagedList.Mvc.dll

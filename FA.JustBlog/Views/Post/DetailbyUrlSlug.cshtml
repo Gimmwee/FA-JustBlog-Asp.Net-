@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Detail";
     Layout = "~/Views/Shared/_PostDetailLayout.cshtml";
 }
@@ -17,8 +16,8 @@
                     <h2 class="subheading">@Model.ShortDescription</h2>
                     <span class="meta">
                         Posted by
-						<a href="#!">SonPP</a>
-                        Posted on @Model.PostedOn                   
+                        <a href="#!">SonPP</a>
+                        Posted on @Model.PostedOn
                     </span>
                 </div>
             </div>
@@ -30,7 +29,7 @@
 <article class="mb-4">
     <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">              
+            <div class="col-md-10 col-lg-8 col-xl-7">
                 <p>@Model.PostContent</p>
 
                 <p style="color:brown">View: @Model.ViewCount</p>
