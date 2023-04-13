@@ -10507,9 +10507,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\FA.JustBlog.csproj",
-      "projectName": "FA.JustBlog",
-      "projectPath": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\FA.JustBlog.csproj",
+      "projectUniqueName": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\FA.JustBlog.UI.csproj",
+      "projectName": "FA.JustBlog.UI",
+      "projectPath": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\FA.JustBlog.UI.csproj",
       "packagesPath": "C:\\Users\\Son\\.nuget\\packages\\",
       "outputPath": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\obj\\",
       "projectStyle": "PackageReference",

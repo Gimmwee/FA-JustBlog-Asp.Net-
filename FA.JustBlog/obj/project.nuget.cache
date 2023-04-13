@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qs0yd9OQuJ4s8sxvA3RHiqIptGLkAGmdy8qB9hImMW0GU8CnncMthM6ABa/QPeSp5xGXo1cEDfAChNF/n+6Ssg==",
+  "dgSpecHash": "6Cs0fLLGfEl9Cmz9Wg9wGhvrXvOOlkF49Fa++cUs7wPzZjbEIQEdTrzbqBOppnYK69BYOcXiZIMZFTyR+3Wi8g==",
   "success": true,
-  "projectFilePath": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\FA.JustBlog.csproj",
+  "projectFilePath": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\FA.JustBlog.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Son\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Son\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

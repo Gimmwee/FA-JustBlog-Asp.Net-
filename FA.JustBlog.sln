@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FA.JustBlog.Core", "FA.JustBlog.Core\FA.JustBlog.Core.csproj", "{159FF392-EE5A-4427-A462-ED94534922C5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FA.JustBlog", "FA.JustBlog\FA.JustBlog.csproj", "{39C8BF1E-915C-45A5-B0EC-5E2779EB0489}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FA.JustBlog.UI", "FA.JustBlog\FA.JustBlog.UI.csproj", "{39C8BF1E-915C-45A5-B0EC-5E2779EB0489}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
