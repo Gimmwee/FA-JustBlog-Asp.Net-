@@ -50,7 +50,7 @@ namespace FA.JustBlog.Controllers
         {
             if (pid.HasValue)
             {
-                var result = uow.PostRepository.GetPostById(pid.Value);
+                var result = uow.PostRepository.Find(pid.Value);
                 if (result != null)
                 {
                     return View(result);

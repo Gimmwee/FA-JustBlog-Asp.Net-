@@ -1,0 +1,93 @@
+﻿@model IEnumerable<FA.JustBlog.Core.Models.Post>
+
+@{
+    ViewData["Title"] = "getLastedPost";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="color:red">5 Lasted Post</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostContent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UrlSlug)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Published)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViewCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RateCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalRate)
+            </th>
+         @*   <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortDescription)
+            </td>
+                <td id="readmore">
+                    <span class="readmore__content">
+                        @Html.DisplayFor(modelItem => item.PostContent)
+                    </span>
+                    <button class="readmore__toggle">
+                        ...more
+                    </button>
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UrlSlug)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Published)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ViewCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RateCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalRate)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Category.Desciption)
+            </td>*@
+        </tr>
+}
+    </tbody>
+</table>

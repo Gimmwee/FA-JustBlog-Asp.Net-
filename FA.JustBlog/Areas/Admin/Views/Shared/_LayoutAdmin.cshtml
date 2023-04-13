@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="~/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="~/plugins/summernote/summernote-bs4.min.css">
+     <link rel="stylesheet" href="~/css/paragraphshorted.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
@@ -218,27 +219,33 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="@Url.Action("Index","PostManager",new {area="Admin"})" class="nav-link active">
+                                    <a href="@Url.Action("Index","PostManager",new {area="Admin"})" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>List Post</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="@Url.Action("getLastedPost","PostManager",new {area = "Admin"})" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Get lasted Post</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="@Url.Action("mostViewPost","PostManager",new {area = "Admin"})" class="nav-link ">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Most view post</p>
+                                        <p>Most View Post</p>
                                     </a>
-                                </li
-                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("getPostByPublished","PostManager",new {area = "Admin"})" class="nav-link ">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Published</p>
+                                        <p>PostByPublished</p>
+                                    </a>
+                                </li>                          
+                                <li class="nav-item">
+                                    <a href="@Url.Action("getUnPublished","PostManager",new {area = "Admin"})" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>PostByUnPublished</p>
                                     </a>
                                 </li>
                             </ul>
@@ -254,7 +261,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./index.html" class="nav-link active">
+                                    <a href="@Url.Action("Index","CategoryManager",new {area="Admin"})" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>List Category</p>
                                     </a>
@@ -271,7 +278,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./index.html" class="nav-link active">
+                                    <a href="@Url.Action("Index","CommentManager",new {area="Admin"})" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>List Comment</p>
                                     </a>
@@ -288,7 +295,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./index.html" class="nav-link active">
+                                    <a href="@Url.Action("Index","TagManager",new {area="Admin"})" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>List Tag</p>
                                     </a>
@@ -353,6 +360,7 @@
     <!-- AdminLTE App -->
     <script src="~/dist/js/adminlte.js"></script>
     <!-- AdminLTE for demo purposes -->
+     <script src="~/js/paragraphsshorted.js"></script>
     @*<script src="~/dist/js/demo.js"></script>*@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="~/dist/js/pages/dashboard.js"></script>

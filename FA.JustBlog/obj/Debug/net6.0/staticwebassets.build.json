@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2Uqwccf1kktnbFTMUPHd6SSLpSaqvm3c1a34QG3gwfQ=",
+  "Hash": "fD37KYh8R0qq7f8oCpJ5OY0HTt+87E6LYGfiwgBdEis=",
   "Source": "FA.JustBlog",
   "BasePath": "_content/FA.JustBlog",
   "Mode": "Default",
@@ -1171,6 +1171,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\post-sample-image.jpg"
+    },
+    {
+      "Identity": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\wwwroot\\css\\paragraphshorted.css",
+      "SourceId": "FA.JustBlog",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\wwwroot\\",
+      "BasePath": "_content/FA.JustBlog",
+      "RelativePath": "css/paragraphshorted.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\paragraphshorted.css"
     },
     {
       "Identity": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\wwwroot\\css\\site.css",
@@ -2395,6 +2412,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\wwwroot\\js\\paragraphsshorted.js",
+      "SourceId": "FA.JustBlog",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\wwwroot\\",
+      "BasePath": "_content/FA.JustBlog",
+      "RelativePath": "js/paragraphsshorted.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\paragraphsshorted.js"
     },
     {
       "Identity": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\wwwroot\\js\\scripts.js",

@@ -5,17 +5,8 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h1>List Post</h1>
-@*<style>
-    td {
-        display: inline-block;
-        width: 300px;
-        white-space: nowrap;
-        overflow: hidden !important;
-        text-overflow: ellipsis;
-    }
+<h1 style="color:red">List Post</h1>
 
-</style>*@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -25,6 +16,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.PostContent)
+            </th>*@
           @*  <th>
                 @Html.DisplayNameFor(model => model.ShortDescription)
             </th>
@@ -64,6 +58,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
+               @* <td id="readmore">
+                    <span class="readmore__content">
+                        @Html.DisplayFor(modelItem => item.PostContent)
+                    </span>
+                    <button class="readmore__toggle">
+                        ...more
+                    </button
+                </td>*@
          @*   <td>
                 @Html.DisplayFor(modelItem => item.ShortDescription)
             </td>
@@ -97,7 +99,9 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.PostId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>
+                @*<a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>*@
+                    @Html.ActionLink("Delete", "Delete",new {  id=item.PostId },
+                    new { onclick = "return confirm('Are U sure to Remove?');"})
             </td>
         </tr>
 }

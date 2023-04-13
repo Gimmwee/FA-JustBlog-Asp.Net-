@@ -23,7 +23,7 @@ namespace FA.JustBlog.Core.Models
         public decimal Rate { get { return RateCount == 0 ? 0 : (decimal)TotalRate / RateCount; } }
 
         public Category Category { get; set; }
-
+        //public virtual List<Category> categories { get; set; }
         public virtual ICollection<PostTagMap> PostTagMaps { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }

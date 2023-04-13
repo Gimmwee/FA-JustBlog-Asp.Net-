@@ -50,8 +50,6 @@ app.MapControllerRoute(
 //       pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
 //});
 
-
-
 app.MapRazorPages();
 
 app.Run();

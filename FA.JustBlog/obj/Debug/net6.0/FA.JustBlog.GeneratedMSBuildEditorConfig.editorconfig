@@ -15,20 +15,72 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\OJT-Fsoft\FA.JustBlog\FA.JustBlog
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/CategoryManager/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlNYW5hZ2VyXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/CategoryManager/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlNYW5hZ2VyXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/CategoryManager/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlNYW5hZ2VyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/CommentManager/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tbWVudE1hbmFnZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/CommentManager/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tbWVudE1hbmFnZXJcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/CommentManager/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29tbWVudE1hbmFnZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/PostManager/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUG9zdE1hbmFnZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/PostManager/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUG9zdE1hbmFnZXJcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/PostManager/getLastedPost.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUG9zdE1hbmFnZXJcZ2V0TGFzdGVkUG9zdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/PostManager/getPostByPublished.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUG9zdE1hbmFnZXJcZ2V0UG9zdEJ5UHVibGlzaGVkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/PostManager/getUnPublished.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUG9zdE1hbmFnZXJcZ2V0VW5QdWJsaXNoZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/PostManager/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUG9zdE1hbmFnZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/PostManager/mostViewPost.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUG9zdE1hbmFnZXJcbW9zdFZpZXdQb3N0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/Shared/_LayoutList.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRMaXN0LmNzaHRtbA==
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/TagManager/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGFnTWFuYWdlclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/TagManager/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGFnTWFuYWdlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Areas/Admin/Views/_ViewImports.cshtml]

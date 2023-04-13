@@ -3,10 +3,8 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-
 @using FA.JustBlog.Core.Models;
 @model List<Post>;
-
 
 <div class="container px-4 px-lg-5">
 	<div class="row gx-4 gx-lg-5 justify-content-center">
@@ -17,7 +15,7 @@
 				{
 					<!-- Post preview-->
 					<div class="post-preview">
-						<a href="DetailbyUrlSlug?url=@item.UrlSlug">
+						<a href="DetailbyUrlSlug?urlslug=@item.UrlSlug">
 							<h2 class="post-title">@item.Title</h2>
 							<h3 class="post-subtitle">@item.ShortDescription</h3>
 						</a>
@@ -31,7 +29,6 @@
 					<hr class="my-4" />
 				}
 			}
-
 			<!-- Pager-->
 			<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
 		</div>

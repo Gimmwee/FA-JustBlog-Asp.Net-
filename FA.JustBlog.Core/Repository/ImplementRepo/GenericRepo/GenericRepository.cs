@@ -1,4 +1,5 @@
 ﻿using FA.JustBlog.Core.DataContext;
+using FA.JustBlog.Core.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -25,8 +26,7 @@ namespace FA.JustBlog.Core.Repository.GenericRepo
         public void Add(TEntity entity)
         {
             //context.Entry<TEntity>(entity).State = EntityState.Added;
-            dbSet.Add(entity);
-            _context.SaveChanges();
+            dbSet.Add(entity);         
         }
         /// <summary>
         /// add range
@@ -77,6 +77,12 @@ namespace FA.JustBlog.Core.Repository.GenericRepo
         {
             return dbSet.ToList();
         }
+
+        //public void GetById(int id)
+        //{
+        //    return dbSet.Find(id);
+        //}
+
         /// <summary>
         /// update
         /// </summary>

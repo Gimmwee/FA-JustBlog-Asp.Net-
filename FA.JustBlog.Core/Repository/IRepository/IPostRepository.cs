@@ -20,8 +20,6 @@ namespace FA.JustBlog.Core.Repository.IRepository
         IList<Post> GetMostViewedPost(int size);
         IList<Post> GetHighestPosts(int size);
 
-        Post GetPostById(int id);
-
         Post GetPostByUrlSlug(string urlSlug);
     }
 }

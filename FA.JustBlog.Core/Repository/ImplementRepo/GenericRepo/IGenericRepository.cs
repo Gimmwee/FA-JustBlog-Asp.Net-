@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FA.JustBlog.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace FA.JustBlog.Core.Repository.GenericRepo
 
         void Delete(int id);
 
+        //void GetById(int id);
         IEnumerable<TEntity> GetAll();
 
         TEntity Find(int id);
