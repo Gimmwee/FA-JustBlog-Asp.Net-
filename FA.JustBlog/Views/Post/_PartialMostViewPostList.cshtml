@@ -10,6 +10,12 @@
 
     @foreach (var item in mostViewPost)
     {
-        <h5>@item.Title</h5>
-        <p>@item.PostedOn</p>
+        <a href="DetailbyUrlSlug?urlslug=@item.UrlSlug">
+
+        <h5 style="margin:4px 0">@item.Title</h5>
+        <p style="margin:4px 0">@item.PostedOn</p>
+        </a>
+       
+
+        
     }

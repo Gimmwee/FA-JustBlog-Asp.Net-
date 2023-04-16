@@ -107,3 +107,28 @@
 }
     </tbody>
 </table>
+<nav aria-label="Page navigation text-center" class="d-flex justify-content-center align-items-center">
+    <ul class="pagination">
+        @if (ViewBag.PageNumber > 1)
+        {
+            <li class="page-item">
+                <a href="/PostManager/Index?page=1" class="page-link">First Page</a>
+            </li>
+
+        }
+
+        @for (int i = 1; i <= Math.Ceiling((decimal)ViewBag.TotalRecord / ViewBag.PageSize); i++)
+        {
+            <li class="page-item @(ViewBag.PageNumber == i ? "active" : "")">
+                <a href="/PostManager/Index?page=@i" class="page-link">@i</a>
+            </li>
+        }
+
+        @if (ViewBag.PageNumber < Math.Ceiling((decimal)ViewBag.TotalRecord / ViewBag.PageSize))
+        {
+            <li class="page-item">
+                <a href="/PostManager/Index?page=@Math.Ceiling((decimal)ViewBag.TotalRecord / ViewBag.PageSize)" class="page-link">Last Page</a>
+            </li>
+        }
+    </ul>
+</nav>

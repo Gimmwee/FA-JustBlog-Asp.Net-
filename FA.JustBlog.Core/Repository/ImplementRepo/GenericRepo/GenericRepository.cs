@@ -78,6 +78,8 @@ namespace FA.JustBlog.Core.Repository.GenericRepo
             return dbSet.ToList();
         }
 
+      
+
         //public void GetById(int id)
         //{
         //    return dbSet.Find(id);

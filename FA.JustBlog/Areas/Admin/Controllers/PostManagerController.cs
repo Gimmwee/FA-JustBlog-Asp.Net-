@@ -4,7 +4,9 @@ using FA.JustBlog.Core.Repository.ImplementRepo;
 using FA.JustBlog.Core.Repository.UnitOfWork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Hosting;
 
 namespace FA.JustBlog.Areas.Admin.Controllers
 {
@@ -18,10 +20,18 @@ namespace FA.JustBlog.Areas.Admin.Controllers
             this.uow = uow;
         }
         // GET: PostManagerController
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var result = uow.PostRepository.GetAll();
-            return View(result.ToList());
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+
+            var result = uow.PostRepository.GetAll().OrderByDescending(p => p.PostId).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+
+            ViewBag.PageNumber = pageNumber;
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalRecord = uow.PostRepository.GetAll().Count();
+            return View(result);
+
         }
 
 
@@ -88,25 +98,38 @@ namespace FA.JustBlog.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        // GET: PostManagerController/Edit/5
-        public ActionResult Edit(int id)
+        //GET: PostManagerController/Edit/5
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var post = uow.PostRepository.Find(id.Value);
+            if (post == null)
+            {
+                return NotFound(); 
+            }
+
+            return View(post);
+
         }
 
         // POST: PostManagerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Post post)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            post.PostedOn = DateTime.Now;
+            post.Modified = DateTime.Now;
+            var rs = SeoUrlHepler.ToUrlSlug(post.Title);
+            post.UrlSlug = rs;
+
+            uow.PostRepository.Update(post);
+            uow.SaveChange();
+
+            return RedirectToAction("Index");
         }
 
         // GET: PostManagerController/Delete/5

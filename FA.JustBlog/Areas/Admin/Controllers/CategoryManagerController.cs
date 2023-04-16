@@ -3,6 +3,8 @@ using FA.JustBlog.Core.Models;
 using FA.JustBlog.Core.Repository.UnitOfWork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Hosting;
 
 namespace FA.JustBlog.Areas.Admin.Controllers
 {
@@ -16,10 +18,17 @@ namespace FA.JustBlog.Areas.Admin.Controllers
             this.uow = uow;
         }
         // GET: CategoryManagerController
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var result = uow.CategoryRepository.GetAll();
-            return View(result.ToList());
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+
+            var result = uow.CategoryRepository.GetAll().OrderByDescending(p => p.CategoryId).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+
+            ViewBag.PageNumber = pageNumber;
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalRecord = uow.CategoryRepository.GetAll().Count();
+            return View(result);
         }
 
         // GET: CategoryManagerController/Details/5
@@ -55,24 +64,39 @@ namespace FA.JustBlog.Areas.Admin.Controllers
         }
 
         // GET: CategoryManagerController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var category = uow.CategoryRepository.Find(id.Value);
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            return View(category);
         }
 
         // POST: CategoryManagerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Category category)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            
+            var rs = SeoUrlHepler.ToUrlSlug(category.Name);
+            category.UrlSlug = rs;
+
+
+
+            uow.CategoryRepository.Update(category);
+            uow.SaveChange();
+
+
+
+            return RedirectToAction("Index");
         }
 
         // GET: CategoryManagerController/Delete/5

@@ -3,6 +3,7 @@ using FA.JustBlog.Core.Models;
 using FA.JustBlog.Core.Repository.UnitOfWork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace FA.JustBlog.Areas.Admin.Controllers
 {
@@ -10,25 +11,32 @@ namespace FA.JustBlog.Areas.Admin.Controllers
     [Route("TagManager/{action}")]
     public class TagManagerController : Controller
 	{
-		private readonly IUnitOfWork _uow;
-		public TagManagerController(IUnitOfWork uow)
-		{
-			_uow = uow;
-
+        private IUnitOfWork uow;
+        public TagManagerController(IUnitOfWork uow)
+        {
+            this.uow = uow;
         }
-		// GET: TagManagerController
-		public ActionResult Index()
-		{
-			var rs = _uow.TagRepository.GetAll();
-			return View(rs.ToList());
-		}
+        // GET: TagManagerController
+        public ActionResult Index(int? page)
+        {
+
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+
+            var result = uow.TagRepository.GetAll().OrderByDescending(p => p.TagId).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+
+            ViewBag.PageNumber = pageNumber;
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalRecord = uow.TagRepository.GetAll().Count();
+            return View(result);
+        }
 
 		// GET: TagManagerController/Details/5
 		public ActionResult Details(int? id)
 		{
             if (id.HasValue)
             {
-                var tag = _uow.TagRepository.Find(id.Value);
+                var tag = uow.TagRepository.Find(id.Value);
                 if (tag != null)
                 {
                     return View(tag);
@@ -50,38 +58,47 @@ namespace FA.JustBlog.Areas.Admin.Controllers
 		{
             var rs = SeoUrlHepler.ToUrlSlug(tags.Name);
             tags.UrlSlug = rs;
-            _uow.TagRepository.Add(tags);
-            _uow.SaveChange();
+            uow.TagRepository.Add(tags);
+            uow.SaveChange();
             return RedirectToAction("Index");
         }
 
 		// GET: TagManagerController/Edit/5
-		public ActionResult Edit(int id)
+		public ActionResult Edit(int? id)
 		{
-			return View();
-		}
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var tag = uow.TagRepository.Find(id.Value);
+            if (tag == null)
+            {
+                return NotFound();
+            }
+
+            return View(tag);
+        }
 
 		// POST: TagManagerController/Edit/5
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit(int id, IFormCollection collection)
+		public ActionResult Edit(int id, Tag tag)
 		{
-			try
-			{
-				return RedirectToAction(nameof(Index));
-			}
-			catch
-			{
-				return View();
-			}
-		}
+
+            var rs = SeoUrlHepler.ToUrlSlug(tag.Name);
+            tag.UrlSlug = rs;
+            uow.TagRepository.Update(tag);
+            uow.SaveChange();
+            return RedirectToAction("Index");
+        }
 
 		// GET: TagManagerController/Delete/5
 		public ActionResult Delete(int? id)
 		{
             if (id.HasValue)
             {
-                _uow.TagRepository.Delete(id.Value);
+                uow.TagRepository.Delete(id.Value);
             }
             return RedirectToAction("Index");
         }

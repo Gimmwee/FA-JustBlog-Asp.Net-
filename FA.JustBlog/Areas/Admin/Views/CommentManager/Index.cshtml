@@ -58,9 +58,35 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.CommentId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.CommentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CommentId">Delete</a>
+                    @Html.ActionLink("Delete", "Delete",new {  id=item.CommentId },
+                new { onclick = "return confirm('Are U sure to Remove?');"})
             </td>
         </tr>
 }
     </tbody>
 </table>
+<nav aria-label="Page navigation text-center" class="d-flex justify-content-center align-items-center">
+    <ul class="pagination">
+        @if (ViewBag.PageNumber > 1)
+        {
+            <li class="page-item">
+                <a href="/CommentManager/Index?page=1" class="page-link">First Page</a>
+            </li>
+
+        }
+
+        @for (int i = 1; i <= Math.Ceiling((decimal)ViewBag.TotalRecord / ViewBag.PageSize); i++)
+        {
+            <li class="page-item @(ViewBag.PageNumber == i ? "active" : "")">
+                <a href="/CommentManager/Index?page=@i" class="page-link">@i</a>
+            </li>
+        }
+
+        @if (ViewBag.PageNumber < Math.Ceiling((decimal)ViewBag.TotalRecord / ViewBag.PageSize))
+        {
+            <li class="page-item">
+                <a href="/CommentManager/Index?page=@Math.Ceiling((decimal)ViewBag.TotalRecord / ViewBag.PageSize)" class="page-link">Last Page</a>
+            </li>
+        }
+    </ul>
+</nav>

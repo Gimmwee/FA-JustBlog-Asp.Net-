@@ -3,7 +3,9 @@ using FA.JustBlog.Core.Models;
 using FA.JustBlog.Core.Repository.UnitOfWork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Hosting;
 
 namespace FA.JustBlog.Areas.Admin.Controllers
 {
@@ -17,10 +19,17 @@ namespace FA.JustBlog.Areas.Admin.Controllers
             this.uow = uow;
         }
         // GET: CommentManagerController
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var result = uow.CommentRepository.GetAll();
-            return View(result.ToList());
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+
+            var result = uow.CommentRepository.GetAll().OrderByDescending(p => p.CommentId).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+
+            ViewBag.PageNumber = pageNumber;
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalRecord = uow.CommentRepository.GetAll().Count();
+            return View(result);
         }
 
         // GET: CommentManagerController/Details/5
@@ -62,33 +71,43 @@ namespace FA.JustBlog.Areas.Admin.Controllers
         }
 
         // GET: CommentManagerController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var comment = uow.CommentRepository.Find(id.Value);
+            if (comment == null)
+            {
+                return NotFound();
+            }
+            return View(comment);
         }
 
         // POST: CommentManagerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Comment comment)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            comment.CommentTime = DateTime.Now;
+
+            uow.CommentRepository.Update(comment);
+            uow.SaveChange();
+            return RedirectToAction("Index");
         }
 
         // GET: CommentManagerController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id.HasValue)
+            {
+                uow.CommentRepository.Delete(id.Value);
+            }
+            return RedirectToAction("Index");
         }
 
-        // POST: CommentManagerController/Delete/5
+        //POST: CommentManagerController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

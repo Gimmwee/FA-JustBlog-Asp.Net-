@@ -1,47 +1,74 @@
 ﻿@{
-	ViewData["Title"] = "Index";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
 @using FA.JustBlog.Core.Models;
 @model List<Post>;
 
 <div class="container px-4 px-lg-5">
-	<div class="row gx-4 gx-lg-5 justify-content-center">
-		<div class="col-lg-9 ">
-			@if (Model.Count() > 0)
-			{
-				@foreach (var item in Model)
-				{
-					<!-- Post preview-->
-					<div class="post-preview">
-						<a href="DetailbyUrlSlug?urlslug=@item.UrlSlug">
-							<h2 class="post-title">@item.Title</h2>
-							<h3 class="post-subtitle">@item.ShortDescription</h3>
-						</a>
-						<p class="post-meta">
-							Posted by
-							<a href="#!">SonPP</a>
-							on @item.PostedOn
-						</p>
-					</div>
-					<!-- Divider-->
-					<hr class="my-4" />
-				}
-			}
-			<!-- Pager-->
-			<div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
-		</div>
-		<div class="col-lg-3 ">
-			@Html.Partial("_PartialAboutCard")
-			<hr />
-			<h3 style="color:red">Most View Posts</h3>
-			@Html.Partial("_PartialMostViewPostList")
-			<hr />
-			<h3 style="color:red">Lated Posts</h3>
-			@Html.Partial("_PartialViewLatedPost")
-		</div>
-	</div>
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-lg-9 ">
+
+            @foreach (var item in Model)
+            {
+                <!-- Post preview-->
+                <div class="post-preview">
+                    <a href="DetailbyUrlSlug?urlslug=@item.UrlSlug">
+                        <h2 class="post-title">@item.Title</h2>
+                        <h3 class="post-subtitle">@item.ShortDescription</h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted by
+                        <a href="#!">SonPP</a>
+                        on @item.PostedOn
+                    </p>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+            }
+
+
+            <nav aria-label="Page navigation text-center">
+                <ul class="pagination">
+                    @if (ViewBag.PageNumber > 1)
+                    {
+                        <li class="page-item">
+                            <a href="/Post/Index?page=1" class="page-link">First Page</a>
+                        </li>
+
+                    }
+
+                    @for (int i = 1; i <= Math.Ceiling((decimal)ViewBag.TotalRecord / ViewBag.PageSize); i++)
+                    {
+                        <li class="page-item @(ViewBag.PageNumber == i ? "active" : "")">
+                            <a href="/Post/Index?page=@i" class="page-link">@i</a>
+                        </li>
+                    }
+
+                    @if (ViewBag.PageNumber < Math.Ceiling((decimal)ViewBag.TotalRecord / ViewBag.PageSize))
+                    {
+                        <li class="page-item">
+                            <a href="/Post/Index?page=@Math.Ceiling((decimal)ViewBag.TotalRecord / ViewBag.PageSize)" class="page-link">Last Page</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+
+
+            <!-- Pager-->
+            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+        </div>
+        <div class="col-lg-3 ">
+            @Html.Partial("_PartialAboutCard")
+            <hr />
+            <h3 style="color:red">Most View Posts</h3>
+            @Html.Partial("_PartialMostViewPostList")
+            <hr />
+            <h3 style="color:red">Lated Posts</h3>
+            @Html.Partial("_PartialViewLatedPost")
+        </div>
+    </div>
 </div>
 
 

@@ -26,8 +26,7 @@ namespace FA.JustBlog.Core.Repository.GenericRepo
         void Delete(int id);
 
         //void GetById(int id);
-        IEnumerable<TEntity> GetAll();
-
+        IEnumerable<TEntity> GetAll(); 
         TEntity Find(int id);
     }
 }
