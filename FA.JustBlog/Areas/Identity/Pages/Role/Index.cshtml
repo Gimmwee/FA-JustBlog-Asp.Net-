@@ -1,0 +1,47 @@
+﻿@page "/Admin/Role"
+@model TestIdentity.Areas.Identity.Pages.Role.IndexModel
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<form method="post" class="d-inline">
+    <button class="btn btn-secondary"
+            asp-page="./Add"
+            asp-page-handler="StartNewRole">
+        Add role
+    </button>
+</form>
+<table class="table table-bordered">
+    <tr>
+        <th>RoleId</th>
+        <th>Role Name</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var role in Model.Roles)
+    {
+        <tr>
+            <td>@role.Id</td>
+            <td>@role.Name</td>
+            <td>
+                <form method="post" class="d-inline">
+                    <button name="Input.Id" value="@role.Id"
+                        class="btn btn-success btn-sm"
+                        asp-page="./Add"
+                        asp-page-handler="StartUpdate">
+                        Update role
+                    </button>
+                </form>
+                <form method="post" class="d-inline">
+                    <button name="Input.Id"
+                        value="@role.Id"
+                        class="btn btn-danger btn-sm"
+                        asp-page="./Delete">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,52 @@
+﻿@page "/Admin/Role/Users/"
+@model TestIdentity.Areas.Identity.Pages.Role.UserModel
+@{
+    ViewData["Title"] = "List Users";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>UserName</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Roles</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var user in Model.users)
+    {
+        <tr>
+            <td>@user.UserName</td>
+            <td>@user.FirstName</td>
+            <td>@user.LastName</td>
+            <td>@user.ListRoles</td>
+            <td>
+                <form method="POST" class="d-inline">
+                    <button name="Input.Id" value="@user.Id" class="btn btn-primary btn-sm"
+                        asp-page="./AddUserRole">
+                        Cập nhật Role
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+@*@{
+
+    Func<int?, string> generateUrl = (int? _pagenumber) =>
+    {
+        return Url.Page("./User", new { pageNumber = _pagenumber });
+    };
+
+    var datapaging = new
+    {
+        currentPage = Model.pageNumber,
+        countPages = Model.TotalPage,
+        generateUrl = generateUrl
+    };
+
+}*@
+@*<partial name="_Paging" model="@datapaging" />*@

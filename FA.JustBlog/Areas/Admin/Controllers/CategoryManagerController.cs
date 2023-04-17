@@ -1,15 +1,18 @@
 ﻿using FA.JustBlog.Core.Common;
 using FA.JustBlog.Core.Models;
 using FA.JustBlog.Core.Repository.UnitOfWork;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Hosting;
+using System.Data;
 
 namespace FA.JustBlog.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("CategoryManager/{action}")]
+    [Authorize(Roles = ("Blog Owner,Contributor"))]
     public class CategoryManagerController : Controller
     {
         private IUnitOfWork uow;
@@ -44,13 +47,13 @@ namespace FA.JustBlog.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
         }
-
+        [Authorize(Roles = ("Blog Owner,Contributor"))]
         // GET: CategoryManagerController/Create
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize(Roles = ("Blog Owner,Contributor"))]
         // POST: CategoryManagerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -63,6 +66,7 @@ namespace FA.JustBlog.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = ("Blog Owner,Contributor"))]
         // GET: CategoryManagerController/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -79,7 +83,7 @@ namespace FA.JustBlog.Areas.Admin.Controllers
 
             return View(category);
         }
-
+        [Authorize(Roles = ("Blog Owner,Contributor"))]
         // POST: CategoryManagerController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -93,12 +97,10 @@ namespace FA.JustBlog.Areas.Admin.Controllers
 
             uow.CategoryRepository.Update(category);
             uow.SaveChange();
-
-
-
+    
             return RedirectToAction("Index");
         }
-
+        [Authorize(Roles = ("Blog Owner"))]
         // GET: CategoryManagerController/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -110,6 +112,7 @@ namespace FA.JustBlog.Areas.Admin.Controllers
         }
 
         // POST: CategoryManagerController/Delete/5
+        [Authorize(Roles = ("Blog Owner"))]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

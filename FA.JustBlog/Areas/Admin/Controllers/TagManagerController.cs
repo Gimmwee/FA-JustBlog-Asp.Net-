@@ -1,14 +1,17 @@
 ﻿using FA.JustBlog.Core.Common;
 using FA.JustBlog.Core.Models;
 using FA.JustBlog.Core.Repository.UnitOfWork;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Data;
 
 namespace FA.JustBlog.Areas.Admin.Controllers
 {
 	[Area("Admin")]
     [Route("TagManager/{action}")]
+    [Authorize(Roles = ("Blog Owner,Contributor"))]
     public class TagManagerController : Controller
 	{
         private IUnitOfWork uow;
@@ -44,15 +47,15 @@ namespace FA.JustBlog.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
         }
-
-		// GET: TagManagerController/Create
-		public ActionResult Create()
+        [Authorize(Roles = ("Blog Owner,Contributor"))]
+        // GET: TagManagerController/Create
+        public ActionResult Create()
 		{
 			return View();
 		}
-
-		// POST: TagManagerController/Create
-		[HttpPost]
+        [Authorize(Roles = ("Blog Owner,Contributor"))]
+        // POST: TagManagerController/Create
+        [HttpPost]
 		[ValidateAntiForgeryToken]
 		public ActionResult Create(Tag tags)
 		{
@@ -62,9 +65,9 @@ namespace FA.JustBlog.Areas.Admin.Controllers
             uow.SaveChange();
             return RedirectToAction("Index");
         }
-
-		// GET: TagManagerController/Edit/5
-		public ActionResult Edit(int? id)
+        [Authorize(Roles = ("Blog Owner,Contributor"))]
+        // GET: TagManagerController/Edit/5
+        public ActionResult Edit(int? id)
 		{
             if (id == null)
             {
@@ -79,9 +82,9 @@ namespace FA.JustBlog.Areas.Admin.Controllers
 
             return View(tag);
         }
-
-		// POST: TagManagerController/Edit/5
-		[HttpPost]
+        [Authorize(Roles = ("Blog Owner,Contributor"))]
+        // POST: TagManagerController/Edit/5
+        [HttpPost]
 		[ValidateAntiForgeryToken]
 		public ActionResult Edit(int id, Tag tag)
 		{
@@ -92,9 +95,9 @@ namespace FA.JustBlog.Areas.Admin.Controllers
             uow.SaveChange();
             return RedirectToAction("Index");
         }
-
-		// GET: TagManagerController/Delete/5
-		public ActionResult Delete(int? id)
+        [Authorize(Roles = ("Blog Owner"))]
+        // GET: TagManagerController/Delete/5
+        public ActionResult Delete(int? id)
 		{
             if (id.HasValue)
             {
@@ -102,9 +105,9 @@ namespace FA.JustBlog.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
         }
-
-		// POST: TagManagerController/Delete/5
-		[HttpPost]
+        [Authorize(Roles = ("Blog Owner"))]
+        // POST: TagManagerController/Delete/5
+        [HttpPost]
 		[ValidateAntiForgeryToken]
 		public ActionResult Delete(int id, IFormCollection collection)
 		{

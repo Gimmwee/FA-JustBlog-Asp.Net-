@@ -15,7 +15,7 @@ var connectionString = builder.Configuration.GetConnectionString("BlogDB");
 builder.Services.AddDbContext<IdentityContext>(option => option.UseSqlServer(connectionString));
 
 builder.Services.AddDefaultIdentity<UsingIdentityUSer>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<IdentityContext>();
+    .AddRoles<IdentityRole>().AddEntityFrameworkStores<IdentityContext>();
 
 // Add lifetime service
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();

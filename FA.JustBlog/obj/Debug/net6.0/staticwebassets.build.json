@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BJ5UEtQ0Yw8QdAgwg05uNBhvvFdbGGZHCrcPwxJQ8Pc=",
+  "Hash": "KsT4kDrbXT6PmEPMVdiwTfdzcPGOGCf7wmAPpIhTZQk=",
   "Source": "FA.JustBlog.UI",
   "BasePath": "_content/FA.JustBlog.UI",
   "Mode": "Default",
@@ -1171,6 +1171,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\post-sample-image.jpg"
+    },
+    {
+      "Identity": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\wwwroot\\css\\404.css",
+      "SourceId": "FA.JustBlog.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\wwwroot\\",
+      "BasePath": "_content/FA.JustBlog.UI",
+      "RelativePath": "css/404.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\404.css"
     },
     {
       "Identity": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\wwwroot\\css\\paragraphshorted.css",
