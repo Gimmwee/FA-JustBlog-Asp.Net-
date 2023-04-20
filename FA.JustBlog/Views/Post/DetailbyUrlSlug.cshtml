@@ -3,8 +3,13 @@
     Layout = "~/Views/Shared/_PostDetailLayout.cshtml";
 }
 
-@using FA.JustBlog.Core.Models;
+@*@using FA.JustBlog.Core.Models;
 @model Post;
+@using Microsoft.AspNetCore.Identity
+@using FA.JustBlog.Areas.Identity.Data
+@inject UserManager<UsingIdentityUSer> UserManager*@
+
+
 
 
 <header class="masthead" style="background-image: url('../assets/img/post-bg.jpg')">
@@ -37,4 +42,39 @@
         </div>
     </div>
 </article>
+<partial name="_PartialComment"/>
 
+@*<section class="mb-2">
+    <div class="card bg-light">
+        <div class="card-body">
+            <form class="mb-4" action="/Post/Comment" method="post">
+                <input type="hidden" name="postid" value="@Model.PostId" />
+                @if (@UserManager.GetUserName(User) != null)
+                {
+                    <input type="hidden" name="email" value="@UserManager.GetUserName(User) " />
+                    <input type="hidden" name="name" value="@UserManager.GetUserName(User) " />
+                }
+                else
+                {
+                    <input type="hidden" name="email" value="Người ẩn danh" />
+                    <input type="hidden" name="name" value="Người ẩn danh" />
+                }
+                <input name="commentHeader"></input>
+                <textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!" name="commentText"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        @foreach (var item in ViewBag.Comments)
+        {
+            <div class="d-flex mb-4">
+                <div class="flex-shrink-0"><img class="rounded-circle" src="blog_comments" alt="" /></div>
+                <div class="ms-3">
+                    <div class="fw-bold">@item.Name</div>
+                    <div class="fw-bold">@item.CommentTime</div>
+                    <div class="fw-bold">@item.CommentHeader</div>
+                    <div class="fw-bold">@item.CommentText</div>
+                </div>
+            </div>
+        }
+    </div>
+</section>*@

@@ -1,4 +1,236 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using FA.JustBlog.Core.Models
+@using FA.JustBlog.Core.Repository.UnitOfWork
+@model Post
+@inject IUnitOfWork ouw;
+@using Microsoft.AspNetCore.Identity
+@using FA.JustBlog.Areas.Identity.Data
+@inject UserManager<UsingIdentityUSer> UserManager
+
+@{
+    IList<Comment> listComment = ouw.CommentRepository.GetCommentsForPost(Model.PostId);
+
+
+
+}
+
+
+
+<style>
+    * {
+        font-family: Source Sans Pro;
+    }
+
+
+
+    input[type="submit"] {
+        width: 100px;
+        padding: 5px 0px;
+        float: right;
+        background-color: darkgray;
+        margin-top: -16px;
+        border: none;
+        outline: none;
+    }
+
+
+
+    input[type="text"] {
+        width: 43%;
+        padding: 8px 0px;
+        border: 1px solid #dfdfdf;
+        text-indent: 5px;
+    }
+
+
+
+    input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+        font-style: italic;
+        padding: 5px;
+        font-size: 14px;
+    }
+
+
+
+    .comment-content {
+        width: 97%;
+        padding: 10px;
+        min-height: 80px;
+        outline: none;
+        background: #f9f9f9;
+        border-radius: 0px 0px 5px 5px;
+    }
+
+
+
+    .comment-post {
+        background-color: yellow;
+        width: 40%;
+        display: none;
+    }
+
+
+
+        .comment-post i {
+            padding: 0 0px 0px 10px;
+        }
+
+
+
+    .content {
+        width: 100%;
+    }
+
+
+
+    .username {
+        color: #4c6c85;
+    }
+
+
+
+    .comments {
+        width: 600px;
+        margin: 30px auto;
+    }
+
+
+
+    .insert-text {
+        position: relative;
+        margin: 10px 0px 30px 0px;
+    }
+
+
+
+    .list-comments {
+        margin-top: 30px;
+        border-bottom: 1px solid #dfdfdf;
+        width: 100%;
+    }
+
+
+
+        .list-comments > div {
+            padding: 10px 0px;
+            border-top: 1px solid #dfdfdf;
+            border-bottom: 1px solid #dfdfdf;
+            overflow-wrap: break-word;
+        }
+
+
+
+    .list-reply {
+        margin-left: 10%;
+        padding: 0px 20px 0px;
+        width: 100%;
+        border: none;
+        overflow-wrap: break-word;
+        border-left: 1px solid #dfdfdf;
+    }
+
+
+
+    textarea {
+        border: 1px solid #dfdfdf;
+        resize: none;
+        overflow: auto;
+    }
+
+
+
+    .comment-content:focus {
+        background: #fff;
+    }
+
+
+
+    .list-comments p {
+        margin: 0;
+    }
+</style>
+
+
+
+<div class="comments">
+    <h3>Comment...</h3>
+     <form action="/Post/Comment" method="post">
+    <input type="hidden" name="postid" value="@Model.PostId" />
+    @if (@UserManager.GetUserName(User) != null)
+    {
+        <input type="hidden" name="email" value="@UserManager.GetUserName(User) " />
+        <input type="hidden" name="name" value="@UserManager.GetUserName(User) " />
+    }
+    else
+    {
+        <input type="hidden" name="email" value="Ẩn danh" />
+        <input type="hidden" name="name" value="Ẩn danh" />
+    }
+    <span>
+        <strong>Comment Header:&nbsp;</strong> <input type="text" name="commentHeader" placeholder="Enter your header comment.....">
+    </span>
+<textarea placeholder="Your comment content here!!....." class="comment-content" maxlength="400" name="commentText"></textarea>
+    <div class="insert-text">
+        <div class="comment-as">       
+            <span>
+                <input type="submit" value="Submit" />
+            </span>
+    </form>
+            <p class="comment-post">Your Comment has been posted<i class="fa fa-close"></i></p>
+        </div>
+    </div>
+    <div class="list-comments">
+
+
+     
+        @foreach (var item in listComment)
+        {
+            <div>
+                <p><span class="username">@item.Name</span> | <span class="time" style="font-size:13px">@item.Email</span></p>
+                <p style="font-style: italic; font-size: 14px;color: #403d3d">@item.CommentTime</p>
+                <p style="font-size:22px; font-weight:300px">@item.CommentHeader</p>
+                <p style="font-size: 16px;">@item.CommentText</p>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+
+<script>
+    var maxLength = 10;
+    var dt = new Date();
+    var time = dt.getMonth() + "/" + dt.getDate() + "/" + dt.getFullYear() + " " + dt.getHours() + ":" + dt.getMinutes();
+    $(document).ready(function () {
+        $('textarea').keyup(function () {
+            var length = $(this).val().length;
+            var length = maxLength - length;
+            $('#chars').text(length);
+        });
+        //});
+        //$(document).ready(function(){
+        var $text = $('textarea'),
+            $submit = $("input[type='submit']"),
+            $listComment = $(".list-comments"),
+            $loading = $(".loading"),
+            _data;
+        $($submit).click(function () {
+            if ($text.val() == "") {
+                alert("Please write a comment!");
+                $('textarea').focus();
+            }
+            else {
+                _data = $text.val();
+                $listComment.prepend("<div><p><span>Username</span>|" + time + "</p><p>" + _data + "</p><p>28<i class='fa fa-caret-up'></i>5<i class='fa fa-caret-down'></i><span>|Reply</span></p></div>");
+                $text.val("");
+                //      return false;
+            }
+            $('#chars').html(maxLength);
+            $('.comment-post').css('display', 'block');
+        });
+    });
+
+
+
+</script>
+

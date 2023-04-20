@@ -1,0 +1,12 @@
+﻿@using FA.JustBlog.Core.Models
+@using FA.JustBlog.Core.Repository.UnitOfWork
+@inject IUnitOfWork uow
+@{
+    IEnumerable<Tag> tagsList = uow.TagRepository.GetAll().OrderByDescending(c => c.Count);
+}
+
+@foreach (var item in tagsList)
+{
+    <a style="text-decoration:underline" asp-action="Detail" asp-route-id="@item.TagId">#@item.Name</a>
+    <span>&nbsp&nbsp</span>
+}

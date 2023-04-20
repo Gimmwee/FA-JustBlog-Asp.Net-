@@ -207,6 +207,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxfUGFydGlhbE1vc3RWaWV3UG9zdExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Views/Post/_PartialPopularTag.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxfUGFydGlhbFBvcHVsYXJUYWcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/OJT-Fsoft/FA.JustBlog/FA.JustBlog/Views/Post/_PartialViewLatedPost.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdFxfUGFydGlhbFZpZXdMYXRlZFBvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
