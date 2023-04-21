@@ -1,11 +1,24 @@
-using FA.JustBlog.Core.DataContext;
+﻿using FA.JustBlog.Core.DataContext;
 using FA.JustBlog.Core.Repository.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using FA.JustBlog.Data;
 using FA.JustBlog.Areas.Identity.Data;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+var configuration = builder.Configuration;
+
+builder.Services.AddAuthentication().AddFacebook(facebookOptions =>
+{
+    IConfigurationSection facebookAuthNSection = configuration.GetSection("Authentication:Facebook");
+    facebookOptions.AppId = configuration["Authentication:Facebook:AppId"];
+    facebookOptions.AppSecret = configuration["Authentication:Facebook:AppSecret"];
+    facebookOptions.CallbackPath = "/dang-nhap-tu-facebook";
+
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -50,6 +63,11 @@ app.UseEndpoints(endpoints =>
        pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
 });
 
+
 app.MapRazorPages();
+
+
+
+
 
 app.Run();
