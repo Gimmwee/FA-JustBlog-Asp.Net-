@@ -280,3 +280,4 @@ D:\OJT-Fsoft\FA.JustBlog\FA.JustBlog\obj\Debug\net6.0\FA.JustBlog.UI.pdb
 D:\OJT-Fsoft\FA.JustBlog\FA.JustBlog\obj\Debug\net6.0\FA.JustBlog.UI.genruntimeconfig.cache
 D:\OJT-Fsoft\FA.JustBlog\FA.JustBlog\obj\Debug\net6.0\ref\FA.JustBlog.UI.dll
 D:\OJT-Fsoft\FA.JustBlog\FA.JustBlog\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Facebook.dll
+D:\OJT-Fsoft\FA.JustBlog\FA.JustBlog\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Google.dll

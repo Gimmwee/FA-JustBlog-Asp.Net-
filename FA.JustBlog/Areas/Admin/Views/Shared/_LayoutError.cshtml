@@ -10,8 +10,10 @@
     <div>
         <div style="font-size: 40px">
             <span style="font-size: 100px;font-weight: 900;display: flex;justify-content: center;">404</span>
-            @RenderBody()</div>
-        @*<div style="font-size: 14px">@RenderBody()</div>*@
+            @RenderBody()
+            </div>
+       @* <div style="font-size: 14px">@RenderBody()</div>*@
+        <a href="@Url.Action("Index","Home")">Back To Home</a>
     </div>
 </body>
 </html>

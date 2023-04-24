@@ -55,7 +55,7 @@
         @if ((Model.ExternalLogins?.Count ?? 0) != 0)
         {
             <section>
-                <h4>Sử dụng dịch vụ</h4>
+                <h4>SignIn With</h4>
                 <hr />
                 <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
                     <div>
@@ -64,11 +64,29 @@
                             {
                                 <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
                             }
-                        </p>
+                          @*  @if ((Model.ExternalLogins?.Count ?? 0) != 0)
+                            {
+                                <section>
+                                    <h4>Sử dụng dịch vụ</h4>
+                                    <hr />
+                                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                                        <div>
+                                            <p>
+                                                @foreach (var provider in Model.ExternalLogins)
+                                                {
+                                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                                }
+                                            </p>
+                                        </div>
+                                    </form>
+                                </section>
+                            }*@
                     </div>
                 </form>
             </section>
         }
+
+
     </div>
 </div>
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KT/CCjTAtDlL2KCAYxu50DLiTAgj0+TgwkwlERHA/83/UDkeGliPrATUDHgTr2XGDnwYCnh3y2tsEhDqlt2rcw==",
+  "dgSpecHash": "Fhiyj5s9vh1uz3wzrdOLIcntDFmdswtn7VjgJ4sgScZGC8oPaSfcLyhmovhr79quf8Vj7WCRgx+Voyb6FeUhyQ==",
   "success": true,
   "projectFilePath": "D:\\OJT-Fsoft\\FA.JustBlog\\FA.JustBlog\\FA.JustBlog.UI.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\Son\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\Son\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
     "C:\\Users\\Son\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\6.0.15\\microsoft.aspnetcore.authentication.facebook.6.0.15.nupkg.sha512",
+    "C:\\Users\\Son\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\6.0.15\\microsoft.aspnetcore.authentication.google.6.0.15.nupkg.sha512",
     "C:\\Users\\Son\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.15\\microsoft.aspnetcore.cryptography.internal.6.0.15.nupkg.sha512",
     "C:\\Users\\Son\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.15\\microsoft.aspnetcore.cryptography.keyderivation.6.0.15.nupkg.sha512",
     "C:\\Users\\Son\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.15\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.15.nupkg.sha512",

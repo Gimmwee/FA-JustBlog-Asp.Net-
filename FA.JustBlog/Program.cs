@@ -11,14 +11,26 @@ var builder = WebApplication.CreateBuilder(args);
 
 var configuration = builder.Configuration;
 
-builder.Services.AddAuthentication().AddFacebook(facebookOptions =>
-{
-    IConfigurationSection facebookAuthNSection = configuration.GetSection("Authentication:Facebook");
-    facebookOptions.AppId = configuration["Authentication:Facebook:AppId"];
-    facebookOptions.AppSecret = configuration["Authentication:Facebook:AppSecret"];
-    facebookOptions.CallbackPath = "/dang-nhap-tu-facebook";
+builder.Services.AddAuthentication()
+    .AddGoogle(googleOptions =>
+    {
+        // Đọc thông tin Authentication:Google từ appsettings.json
+        IConfigurationSection googleAuthNSection = configuration.GetSection("Authentication:Google");
 
-});
+        // Thiết lập ClientID và ClientSecret để truy cập API google
+        googleOptions.ClientId = googleAuthNSection["ClientId"];
+        googleOptions.ClientSecret = googleAuthNSection["ClientSecret"];
+        // Cấu hình Url callback lại từ Google (không thiết lập thì mặc định là /signin-google)
+        googleOptions.CallbackPath = "/dang-nhap-tu-google";
+    })
+    .AddFacebook(facebookOptions => {
+        // Đọc cấu hình
+        IConfigurationSection facebookAuthNSection = configuration.GetSection("Authentication:Facebook");
+        facebookOptions.AppId = facebookAuthNSection["AppId"];
+        facebookOptions.AppSecret = facebookAuthNSection["AppSecret"];
+        // Thiết lập đường dẫn Facebook chuyển hướng đến
+        facebookOptions.CallbackPath = "/dang-nhap-tu-facebook";
+    });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
