@@ -5,79 +5,63 @@
     var list = ViewData["categories"] as List<SelectListItem>;
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-
+<script src="~/Themes/ckeditor/ckeditor.js"></script>
 <h1>Edit</h1>
-
-<h4>Post</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PostId" />
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShortDescription" class="control-label"></label>
-                <input asp-for="ShortDescription" class="form-control" />
-                <span asp-validation-for="ShortDescription" class="text-danger"></span>
-            </div>
+<form method="post" asp-controller="PostManager" asp-action="Edit">
+    <input asp-for="@Model.PostId" class="form-control" hidden />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h4 class="text-dark">Edit Post</h4>
+            <hr />
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="mb-3">
+            <label asp-for="@Model.Title"></label>
+            <input asp-for="@Model.Title" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.ShortDescription"></label>
+            <textarea asp-for="@Model.ShortDescription" rows="3" class="form-control"></textarea>
+            <span asp-validation-for="@Model.ShortDescription" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
             <div class="form-group">
                 <label asp-for="PostContent" class="control-label"></label>
-                <input asp-for="PostContent" class="form-control" />
+                @Html.TextAreaFor(Model => Model.PostContent, new {@id = "FullDescription",
+                @class = "form-control" , @rows = "200"})
+                <textarea asp-for="PostContent" class="form-control"></textarea>
                 <span asp-validation-for="PostContent" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="UrlSlug" class="control-label"></label>
-                <input asp-for="UrlSlug" class="form-control" readonly />
-                <span asp-validation-for="UrlSlug" class="text-danger"></span>
-            </div>
+        </div>
+        <div class="mb-3">
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Published" /> @Html.DisplayNameFor(model => model.Published)
                 </label>
             </div>
-                <div class="form-group">
-                    <label asp-for="PostedOn" class="control-label"></label>
-                <input asp-for="PostedOn" class="form-control" readonly />
-                    <span asp-validation-for="PostedOn" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Modified" class="control-label"></label>
-                <input asp-for="Modified" class="form-control" readonly />
-                    <span asp-validation-for="Modified" class="text-danger"></span>
-                </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label">Select Category</label>
-                <select asp-for="CategoryId" asp-items="list" class="form-control"></select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ViewCount" class="control-label"></label>
-                <input asp-for="ViewCount" class="form-control" />
-                <span asp-validation-for="ViewCount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RateCount" class="control-label"></label>
-                <input asp-for="RateCount" class="form-control" />
-                <span asp-validation-for="RateCount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TotalRate" class="control-label"></label>
-                <input asp-for="TotalRate" class="form-control" />
-                <span asp-validation-for="TotalRate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.ViewCount"></label>
+            <input type="number" asp-for="@Model.ViewCount" rows="3" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.RateCount"></label>
+            <input type="number" asp-for="@Model.RateCount" rows="3" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="@Model.TotalRate"></label>
+            <input type="number" asp-for="@Model.TotalRate" rows="3" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="CategoryId" class="control-label">Categories</label>
+            <select asp-for="CategoryId" asp-items="list" class="form-control"></select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+        </div>
+        <button type="submit" class="btn btn-dark" style="width:150px">Save</button>
+        <a asp-controller="PostManage" asp-action="Index" class="btn btn-outline-dark" style="width:150px">
+            Back to list
+        </a>
+</form>
+<script>CKEDITOR.replace("FullDescription");</script>

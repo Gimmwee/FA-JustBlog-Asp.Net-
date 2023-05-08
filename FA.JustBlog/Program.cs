@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using FA.JustBlog.Data;
 using FA.JustBlog.Areas.Identity.Data;
 using System.Configuration;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +25,8 @@ builder.Services.AddAuthentication()
         // Cấu hình Url callback lại từ Google (không thiết lập thì mặc định là /signin-google)
         googleOptions.CallbackPath = "/dang-nhap-tu-google";
     })
-    .AddFacebook(facebookOptions => {
+    .AddFacebook(facebookOptions =>
+    {
         // Đọc cấu hình
         IConfigurationSection facebookAuthNSection = configuration.GetSection("Authentication:Facebook");
         facebookOptions.AppId = facebookAuthNSection["AppId"];
@@ -31,6 +34,12 @@ builder.Services.AddAuthentication()
         // Thiết lập đường dẫn Facebook chuyển hướng đến
         facebookOptions.CallbackPath = "/dang-nhap-tu-facebook";
     });
+
+//IWebHost BuildWebHost(string[] args) =>
+//    WebHost.CreateDefaultBuilder(args)
+//        .UseStartup<Program>()
+//        .UseUrls("http://0.0.0.0:" + Environment.GetEnvironmentVariable("PORT"))
+//        .Build();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

@@ -128,5 +128,16 @@ namespace FA.JustBlog.Core.Repository.ImplementRepo
         {
             return _context.Posts.FirstOrDefault(c => c.UrlSlug == urlSlug);
         }
+
+        public IList<Post> GetPostsByTag(string tag)
+        {
+            return _context.Posts.Where(p => _context.PostTagMaps
+  .Where(ptm => _context.Tags
+  .Where(t => t.Name.ToLower() == tag.ToLower())
+  .Select(t => t.TagId)
+  .Contains(ptm.TagId))
+  .Select(ptm => ptm.PostId)
+  .Contains(p.PostId)).ToList();
+        }
     }
 }

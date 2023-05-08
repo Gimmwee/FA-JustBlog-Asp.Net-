@@ -9,7 +9,7 @@
     <div>
         @RenderBody()
     </div>
-    <a @Url.Action("Index","Home")>BackToHome</a>
+    <a href="@Url.Action("Index","Home")">BackToHome</a>
     @await RenderSectionAsync("Scripts", required: false)
 
 </body>

@@ -1,6 +1,8 @@
 ﻿using FA.JustBlog.Core.Models;
 using FA.JustBlog.Core.Repository.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace FA.JustBlog.Controllers
 {
@@ -55,6 +57,19 @@ namespace FA.JustBlog.Controllers
                 return View(result);
             }
             return RedirectToAction("Index");
+        }
+        public IActionResult GetPostsByTag(string? tag, int? page)
+        {
+            int pageSize = 6;
+            int pageNumber = (page ?? 1);
+
+            var result = uow.PostRepository.GetPostsByTag(tag).OrderByDescending(p => p.PostId).Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+
+            ViewBag.PageNumber = pageNumber;
+            ViewBag.PageSize = pageSize;
+            ViewBag.TotalRecord = uow.PostRepository.GetAll().Count();
+
+            return View(result);
         }
         [HttpPost]
         public IActionResult Comment(int postid, string email, string name, string commentText, string commentHeader)
